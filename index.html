@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Slack Solutions operates one of the world's largest intelligent edge platforms — delivering web performance, media, cloud security, and enterprise networking for the world's most demanding digital businesses.">
+  <title>Slack Solutions Inc.</title>
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop offset='0' stop-color='%233B82F6'/><stop offset='1' stop-color='%2306B6D4'/></linearGradient></defs><rect width='32' height='32' rx='6' fill='%230F172A'/><polygon points='18,2 10,18 16,18 14,30 22,14 16,14' fill='url(%23g)'/></svg>">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+/* ============================================================
+   Slack Solutions — Modern Stylesheet
+   ============================================================ */
+
+:root {
+  --primary:       #0F172A;
+  --primary-light: #1E293B;
+  --accent:        #3B82F6;
+  --accent-dark:   #2563EB;
+  --cyan:          #06B6D4;
+  --red:           #EF4444;
+  --light:         #F1F5F9;
+  --white:         #FFFFFF;
+  --text:          #1E293B;
+  --muted:         #64748B;
+  --border:        #E2E8F0;
+  --shadow:    0 4px 6px -1px rgba(0,0,0,.10), 0 2px 4px -2px rgba(0,0,0,.10);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,.10), 0 4px 6px -4px rgba(0,0,0,.10);
+  --shadow-xl: 0 20px 25px -5px rgba(0,0,0,.10), 0 8px 10px -6px rgba(0,0,0,.10);
+  --radius:    12px;
+  --radius-sm: 8px;
+  --transition: 0.25s ease;
+  --font: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font);
+  font-size: 16px;
+  color: var(--text);
+  line-height: 1.6;
+  background: var(--white);
+}
+
+/* ============================================================
+   UTILITIES
+   ============================================================ */
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--cyan) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .5rem;
+  padding: .875rem 2rem;
+  border-radius: 50px;
+  font-family: var(--font);
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all var(--transition);
+  cursor: pointer;
+  border: none;
+  letter-spacing: .02em;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--accent-dark), var(--accent));
+  color: var(--white);
+  box-shadow: 0 4px 15px rgba(59,130,246,.4);
+}
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(59,130,246,.5);
+}
+
+.btn-outline {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255,255,255,.4);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,.1);
+  border-color: rgba(255,255,255,.7);
+}
+
+/* ============================================================
+   NAVIGATION
+   ============================================================ */
+
+#navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 0 1.5rem;
+  transition: background var(--transition), box-shadow var(--transition);
+}
+
+#navbar.scrolled {
+  background: rgba(15,23,42,.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 1px 0 rgba(255,255,255,.06);
+}
+
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.nav-brand {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  letter-spacing: -.02em;
+}
+
+.brand-icon { font-size: 1.3rem; }
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  align-items: center;
+  gap: .25rem;
+}
+
+.nav-link {
+  color: rgba(255,255,255,.75);
+  text-decoration: none;
+  font-size: .875rem;
+  font-weight: 500;
+  padding: .5rem .875rem;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition);
+}
+.nav-link:hover { color: var(--white); background: rgba(255,255,255,.08); }
+
+.nav-cta {
+  background: var(--accent-dark) !important;
+  color: var(--white) !important;
+  padding: .5rem 1.25rem !important;
+  border-radius: 50px !important;
+}
+.nav-cta:hover {
+  background: var(--accent) !important;
+  box-shadow: 0 4px 12px rgba(59,130,246,.4);
+}
+
+.nav-toggle {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: .5rem;
+}
+.nav-toggle span {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background: var(--white);
+  border-radius: 2px;
+  transition: all var(--transition);
+}
+
+/* ============================================================
+   HERO
+   ============================================================ */
+
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  color: var(--white);
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  animation: heroZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes heroZoom {
+  from { transform: scale(1.00); }
+  to   { transform: scale(1.08); }
+}
+
+@keyframes nodePulse {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0.25; }
+}
+.node-pulse      { animation: nodePulse 3.5s ease-in-out infinite; }
+.node-pulse-slow { animation: nodePulse 5s   ease-in-out infinite 1.8s; }
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(15,23,42,.88) 0%,
+    rgba(30,41,59,.72) 50%,
+    rgba(2,6,23,.82) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  max-width: 820px;
+  padding: 2rem 1.5rem;
+  animation: fadeUp .8s ease both;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(59,130,246,.18);
+  border: 1px solid rgba(59,130,246,.4);
+  color: #93C5FD;
+  font-size: .78rem;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  padding: .4rem 1.25rem;
+  border-radius: 50px;
+  margin-bottom: 1.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  margin-bottom: 1.25rem;
+}
+
+.hero-subtitle {
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  color: rgba(255,255,255,.72);
+  max-width: 560px;
+  margin: 0 auto 2.5rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
+.hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.hero-scroll {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: .5rem;
+  color: rgba(255,255,255,.45);
+  font-size: .72rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+
+/* ============================================================
+   ABOUT / STATS
+   ============================================================ */
+
+.about {
+  padding: 5rem 0;
+  background: var(--light);
+}
+
+.about-content {
+  text-align: center;
+  max-width: 780px;
+  margin: 0 auto 3rem;
+}
+
+.about-text {
+  font-size: 1.05rem;
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+
+.stat-card {
+  background: var(--white);
+  border-radius: var(--radius);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+.stat-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+
+.stat-number {
+  font-size: 2.4rem;
+  font-weight: 800;
+  letter-spacing: -.03em;
+  background: linear-gradient(135deg, var(--accent), var(--cyan));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.stat-label {
+  font-size: .85rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: .5rem;
+}
+
+/* ============================================================
+   SERVICES SECTIONS
+   ============================================================ */
+
+.services-section { padding: 6rem 0; }
+
+.dark-section  { background: var(--primary); color: var(--white); }
+.light-section { background: var(--light);   color: var(--text); }
+
+.section-header {
+  text-align: center;
+  max-width: 680px;
+  margin: 0 auto 4rem;
+}
+
+.section-tag {
+  display: inline-block;
+  font-size: .75rem;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(59,130,246,.12);
+  padding: .35rem 1rem;
+  border-radius: 50px;
+  margin-bottom: 1rem;
+}
+
+.section-title {
+  font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+  font-weight: 800;
+  letter-spacing: -.03em;
+  line-height: 1.15;
+  margin-bottom: .75rem;
+}
+.dark-section  .section-title { color: var(--white); }
+.light-section .section-title { color: var(--text); }
+
+.section-subtitle { font-size: 1rem; line-height: 1.7; }
+.dark-section  .section-subtitle { color: rgba(255,255,255,.58); }
+.light-section .section-subtitle { color: var(--muted); }
+
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.cards-grid-3 {
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+}
+
+.service-card {
+  padding: 2rem;
+  border-radius: var(--radius);
+  transition: transform var(--transition), box-shadow var(--transition), border-color var(--transition);
+}
+
+.dark-section .service-card {
+  background: var(--primary-light);
+  border: 1px solid rgba(255,255,255,.06);
+}
+.dark-section .service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 30px rgba(0,0,0,.35);
+  border-color: rgba(59,130,246,.3);
+}
+
+.light-section .service-card {
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow);
+}
+.light-section .service-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+}
+
+.card-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: linear-gradient(135deg, rgba(59,130,246,.2), rgba(6,182,212,.15));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin-bottom: 1.25rem;
+}
+.card-icon.accent-cyan {
+  background: linear-gradient(135deg, rgba(6,182,212,.15), rgba(59,130,246,.1));
+  color: var(--cyan);
+}
+.card-icon.accent-red {
+  background: linear-gradient(135deg, rgba(239,68,68,.15), rgba(220,38,38,.08));
+  color: var(--red);
+}
+
+.service-card h3 {
+  font-size: 1.05rem;
+  font-weight: 700;
+  margin-bottom: .75rem;
+  letter-spacing: -.01em;
+}
+.dark-section  .service-card h3 { color: var(--white); }
+.light-section .service-card h3 { color: var(--text); }
+
+.service-card p {
+  font-size: .9rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+.dark-section  .service-card p { color: rgba(255,255,255,.58); }
+.light-section .service-card p { color: var(--muted); }
+
+.card-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+}
+
+.card-list li {
+  font-size: .84rem;
+  display: flex;
+  align-items: flex-start;
+  gap: .6rem;
+  line-height: 1.5;
+}
+
+.card-list li::before {
+  content: '\2192';
+  font-size: .78rem;
+  flex-shrink: 0;
+  margin-top: .15rem;
+  color: var(--accent);
+}
+
+.dark-section  .card-list li { color: rgba(255,255,255,.52); }
+.light-section .card-list li { color: var(--muted); }
+
+/* ============================================================
+   CONTACT SECTION
+   ============================================================ */
+
+.contact-section {
+  background: var(--primary-light);
+  padding: 6rem 0;
+  color: var(--white);
+}
+
+.section-header.light .section-tag      { color: var(--cyan); background: rgba(6,182,212,.12); }
+.section-header.light .section-title    { color: var(--white); }
+.section-header.light .section-subtitle { color: rgba(255,255,255,.58); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+}
+
+.contact-info h3,
+.contact-support h3 {
+  font-size: 1.35rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  color: var(--white);
+}
+
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.25rem;
+  font-size: .93rem;
+  color: rgba(255,255,255,.68);
+}
+.contact-item i {
+  color: var(--accent);
+  margin-top: .22rem;
+  flex-shrink: 0;
+  width: 16px;
+}
+
+.social-links {
+  display: flex;
+  gap: .75rem;
+  margin-top: 2rem;
+}
+
+.social-links a {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.07);
+  border: 1px solid rgba(255,255,255,.12);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255,255,255,.65);
+  text-decoration: none;
+  font-size: 1rem;
+  transition: all var(--transition);
+}
+.social-links a:hover {
+  background: var(--accent-dark);
+  border-color: var(--accent);
+  color: var(--white);
+  transform: translateY(-3px);
+}
+
+.contact-support p {
+  color: rgba(255,255,255,.62);
+  font-size: .93rem;
+  line-height: 1.8;
+  margin-bottom: 2rem;
+}
+
+.support-highlights {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.highlight-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background: rgba(255,255,255,.05);
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: var(--radius-sm);
+  font-size: .9rem;
+  color: rgba(255,255,255,.78);
+  font-weight: 500;
+}
+.highlight-item i { color: var(--cyan); font-size: 1.1rem; width: 20px; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+
+#footer {
+  background: #050A14;
+  border-top: 1px solid rgba(255,255,255,.06);
+  padding: 1.75rem 0;
+  color: rgba(255,255,255,.45);
+  font-size: .85rem;
+}
+
+.footer-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+}
+
+.footer-brand {
+  font-weight: 700;
+  color: var(--white);
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  font-size: .95rem;
+}
+
+.footer-nav {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.footer-nav a {
+  color: rgba(255,255,255,.45);
+  text-decoration: none;
+  transition: color var(--transition);
+}
+.footer-nav a:hover { color: var(--white); }
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+
+@media (max-width: 768px) {
+  .nav-toggle { display: flex; }
+
+  .nav-menu {
+    position: fixed;
+    top: 72px;
+    left: 0;
+    right: 0;
+    background: rgba(15,23,42,.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    flex-direction: column;
+    padding: 1.5rem;
+    gap: .25rem;
+    transform: translateY(-110%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform var(--transition), opacity var(--transition);
+  }
+
+  .nav-menu.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  .nav-link { width: 100%; display: block; text-align: center; padding: .75rem; }
+
+  .contact-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+
+  .footer-content { flex-direction: column; text-align: center; }
+  .footer-nav { justify-content: center; }
+
+  .hero-actions { flex-direction: column; align-items: center; }
+
+  .hero-scroll { display: none; }
+}
+
+@media (max-width: 480px) {
+  .cards-grid   { grid-template-columns: 1fr; }
+  .cards-grid-3 { grid-template-columns: 1fr; }
+  .stats-grid   { grid-template-columns: repeat(2, 1fr); }
+}
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <nav id="navbar">
+    <div class="nav-container">
+      <a href="#home" class="nav-brand">
+        <span class="brand-icon">&#9889;</span>
+        Slack Solutions
+      </a>
+      <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#performance" class="nav-link">Web Performance</a></li>
+        <li><a href="#media" class="nav-link">Media Delivery</a></li>
+        <li><a href="#security" class="nav-link">Cloud Security</a></li>
+        <li><a href="#networking" class="nav-link">Cloud Networking</a></li>
+        <li><a href="#contact" class="nav-link nav-cta">Contact Us</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero">
+    <svg class="hero-bg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <defs>
+        <!-- Base background: deep navy, lighter at center -->
+        <radialGradient id="hbg" cx="648" cy="405" r="820" gradientUnits="userSpaceOnUse">
+          <stop offset="0%"   stop-color="#162540"/>
+          <stop offset="55%"  stop-color="#0d1a2e"/>
+          <stop offset="100%" stop-color="#030710"/>
+        </radialGradient>
+        <!-- Ambient blob gradients -->
+        <radialGradient id="blob1" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#1d4ed8" stop-opacity="0.24"/>
+          <stop offset="100%" stop-color="#1d4ed8" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="blob2" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#0891b2" stop-opacity="0.20"/>
+          <stop offset="100%" stop-color="#0891b2" stop-opacity="0"/>
+        </radialGradient>
+        <radialGradient id="blob3" cx="50%" cy="50%" r="50%">
+          <stop offset="0%"   stop-color="#1e3a8a" stop-opacity="0.15"/>
+          <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Node glow filter -->
+        <filter id="glow" x="-80%" y="-80%" width="260%" height="260%">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="5" result="b"/>
+          <feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <!-- Dot grid -->
+        <pattern id="dots" width="48" height="48" patternUnits="userSpaceOnUse">
+          <circle cx="24" cy="24" r="1" fill="#475569" opacity="0.12"/>
+        </pattern>
+      </defs>
+
+      <!-- Base -->
+      <rect width="1440" height="900" fill="url(#hbg)"/>
+      <!-- Dot grid overlay -->
+      <rect width="1440" height="900" fill="url(#dots)"/>
+
+      <!-- Ambient colour blobs -->
+      <ellipse cx="660"  cy="300" rx="450" ry="360" fill="url(#blob1)"/>
+      <ellipse cx="1160" cy="560" rx="370" ry="290" fill="url(#blob2)"/>
+      <ellipse cx="255"  cy="625" rx="290" ry="225" fill="url(#blob3)"/>
+
+      <!-- Network edges -->
+      <g fill="none" stroke-linecap="round">
+        <!-- Hub–hub backbone -->
+        <line x1="400"  y1="450" x2="820"  y2="250" stroke="#3B82F6" stroke-width="0.9" opacity="0.30"/>
+        <line x1="820"  y1="250" x2="1100" y2="500" stroke="#3B82F6" stroke-width="0.9" opacity="0.28"/>
+        <line x1="400"  y1="450" x2="1100" y2="500" stroke="#3B82F6" stroke-width="0.6" opacity="0.16"/>
+        <!-- Hub 1 spokes -->
+        <line x1="400"  y1="450" x2="200"  y2="290" stroke="#3B82F6" stroke-width="0.7" opacity="0.24"/>
+        <line x1="400"  y1="450" x2="175"  y2="630" stroke="#3B82F6" stroke-width="0.7" opacity="0.22"/>
+        <line x1="400"  y1="450" x2="555"  y2="665" stroke="#3B82F6" stroke-width="0.7" opacity="0.22"/>
+        <!-- Hub 2 spokes -->
+        <line x1="820"  y1="250" x2="645"  y2="95"  stroke="#06B6D4" stroke-width="0.7" opacity="0.24"/>
+        <line x1="820"  y1="250" x2="1015" y2="95"  stroke="#06B6D4" stroke-width="0.7" opacity="0.24"/>
+        <line x1="820"  y1="250" x2="700"  y2="435" stroke="#3B82F6" stroke-width="0.7" opacity="0.20"/>
+        <!-- Hub 3 spokes -->
+        <line x1="1100" y1="500" x2="1315" y2="295" stroke="#06B6D4" stroke-width="0.7" opacity="0.24"/>
+        <line x1="1100" y1="500" x2="1345" y2="665" stroke="#06B6D4" stroke-width="0.7" opacity="0.22"/>
+        <line x1="1100" y1="500" x2="950"  y2="715" stroke="#3B82F6" stroke-width="0.7" opacity="0.22"/>
+        <!-- Cross-spoke bridges -->
+        <line x1="700"  y1="435" x2="555"  y2="665" stroke="#06B6D4" stroke-width="0.6" opacity="0.18"/>
+        <line x1="1015" y1="95"  x2="1315" y2="295" stroke="#06B6D4" stroke-width="0.6" opacity="0.18"/>
+        <line x1="555"  y1="665" x2="950"  y2="715" stroke="#3B82F6" stroke-width="0.6" opacity="0.16"/>
+        <line x1="200"  y1="290" x2="645"  y2="95"  stroke="#06B6D4" stroke-width="0.6" opacity="0.15"/>
+        <line x1="175"  y1="630" x2="555"  y2="665" stroke="#3B82F6" stroke-width="0.6" opacity="0.15"/>
+      </g>
+
+      <!-- Node glows (blurred halos drawn first) -->
+      <g filter="url(#glow)">
+        <circle cx="820"  cy="250" r="6"   fill="#60A5FA" opacity="0.9"/>
+        <circle cx="400"  cy="450" r="5.5" fill="#3B82F6" opacity="0.85"/>
+        <circle cx="1100" cy="500" r="5.5" fill="#22D3EE" opacity="0.85"/>
+        <circle cx="200"  cy="290" r="3.5" fill="#60A5FA" opacity="0.70"/>
+        <circle cx="175"  cy="630" r="3.5" fill="#3B82F6" opacity="0.70"/>
+        <circle cx="555"  cy="665" r="3.5" fill="#22D3EE" opacity="0.70"/>
+        <circle cx="645"  cy="95"  r="3.5" fill="#60A5FA" opacity="0.70"/>
+        <circle cx="1015" cy="95"  r="3.5" fill="#93C5FD" opacity="0.70"/>
+        <circle cx="700"  cy="435" r="3"   fill="#22D3EE" opacity="0.65"/>
+        <circle cx="1315" cy="295" r="3.5" fill="#60A5FA" opacity="0.70"/>
+        <circle cx="1345" cy="665" r="3"   fill="#22D3EE" opacity="0.65"/>
+        <circle cx="950"  cy="715" r="3"   fill="#3B82F6" opacity="0.65"/>
+      </g>
+
+      <!-- Node dots (crisp, on top) -->
+      <circle cx="820"  cy="250" r="3.5" fill="#BFDBFE" class="node-pulse"/>
+      <circle cx="400"  cy="450" r="3"   fill="#93C5FD"/>
+      <circle cx="1100" cy="500" r="3"   fill="#A5F3FC" class="node-pulse-slow"/>
+      <circle cx="200"  cy="290" r="2"   fill="#60A5FA"/>
+      <circle cx="175"  cy="630" r="2"   fill="#3B82F6"/>
+      <circle cx="555"  cy="665" r="2"   fill="#22D3EE"/>
+      <circle cx="645"  cy="95"  r="2"   fill="#93C5FD"/>
+      <circle cx="1015" cy="95"  r="2"   fill="#93C5FD"/>
+      <circle cx="700"  cy="435" r="1.5" fill="#22D3EE"/>
+      <circle cx="1315" cy="295" r="2"   fill="#60A5FA"/>
+      <circle cx="1345" cy="665" r="1.5" fill="#22D3EE"/>
+      <circle cx="950"  cy="715" r="1.5" fill="#60A5FA"/>
+      <!-- Ambient corner nodes -->
+      <circle cx="95"   cy="155" r="1.5" fill="#334155" opacity="0.55"/>
+      <circle cx="1385" cy="130" r="1.5" fill="#334155" opacity="0.55"/>
+      <circle cx="75"   cy="790" r="1.5" fill="#334155" opacity="0.55"/>
+      <circle cx="1395" cy="810" r="1.5" fill="#334155" opacity="0.55"/>
+      <circle cx="715"  cy="855" r="1.5" fill="#334155" opacity="0.45"/>
+      <circle cx="1215" cy="790" r="1"   fill="#334155" opacity="0.45"/>
+      <circle cx="295"  cy="105" r="1"   fill="#334155" opacity="0.45"/>
+    </svg>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">Trusted by Enterprises Worldwide</div>
+      <h1 class="hero-title">Fast. Reliable. <span class="gradient-text">Secure.</span></h1>
+      <p class="hero-subtitle">The intelligent edge platform powering the world's most demanding digital experiences — from streaming billions of video hours to defending against nation-state attacks.</p>
+      <div class="hero-actions">
+        <a href="#performance" class="btn btn-primary">Explore Solutions</a>
+        <a href="#contact" class="btn btn-outline">Talk to an Engineer</a>
+      </div>
+    </div>
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <i class="fa fa-chevron-down"></i>
+    </div>
+  </section>
+
+  <!-- About / Stats Section -->
+  <section class="about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <p class="about-text">Slack Solutions operates one of the world's largest intelligent edge platforms, spanning thousands of points of presence across more than 135 countries. We process a significant share of global web traffic daily — giving our customers a structural performance and security advantage that cannot be replicated on-premises or through any single cloud provider.</p>
+      </div>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-number">75%</div>
+          <div class="stat-label">Faster DNS Resolution</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">20+ Tbps</div>
+          <div class="stat-label">DDoS Mitigation Capacity</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">135+</div>
+          <div class="stat-label">Countries on Network</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">99.99%</div>
+          <div class="stat-label">Uptime SLA</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Web Performance Section -->
+  <section id="performance" class="services-section dark-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Web Performance</div>
+        <h2 class="section-title">Every millisecond is revenue. Stop losing it.</h2>
+        <p class="section-subtitle">Shave latency off every interaction and convert more visitors into customers &mdash; on any device, any network, anywhere.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Nano</h3>
+          <p>Eliminates the performance gap between your origin and your users by intelligently routing and optimizing every request at the edge — regardless of connectivity conditions.</p>
+          <ul class="card-list">
+            <li>Sub-50ms response times at the edge, globally</li>
+            <li>Automatic image, script, and markup optimization</li>
+            <li>Real-user monitoring with adaptive routing</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-gauge-high"></i></div>
+          <h3>Dynamic Site Accelerator</h3>
+          <p>Dynamic content can't be cached — but it can still be fast. DSA uses proprietary route optimization and persistent origin connections to accelerate every page, no matter how personalized.</p>
+          <ul class="card-list">
+            <li>Up to 3&times; faster TTFB for authenticated pages</li>
+            <li>Always-on capacity with no pre-provisioning</li>
+            <li>End-to-end TLS with mutual authentication</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-server"></i></div>
+          <h3>Fast DNS</h3>
+          <p>Your site is only as fast as its DNS. Fast DNS answers queries from the edge node closest to each user, cutting resolution time and keeping your domain reachable even under attack.</p>
+          <ul class="card-list">
+            <li>Answers DNS queries in under 20ms globally</li>
+            <li>Anycast architecture eliminates single points of failure</li>
+            <li>Absorbs multi-terabit DDoS against DNS infrastructure</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-globe"></i></div>
+          <h3>Global Traffic Management</h3>
+          <p>Keep every user connected to the fastest available origin, automatically. GTM monitors health across all your data centers and cloud regions in real time, routing around failures before users notice.</p>
+          <ul class="card-list">
+            <li>Health-driven failover in under 30 seconds</li>
+            <li>Weighted, geo, and performance-based routing</li>
+            <li>Works across AWS, Azure, GCP, and on-prem</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>IP Application Accelerator</h3>
+          <p>Enterprise applications weren't designed for the public internet. IPA builds a private fast lane for your TCP/IP traffic, shrinking round-trips and masking last-mile packet loss.</p>
+          <ul class="card-list">
+            <li>Reduces TCP handshake overhead by up to 60%</li>
+            <li>Continuous optimization across 100,000+ BGP paths</li>
+            <li>Transparent failover — no client-side changes required</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-cloud"></i></div>
+          <h3>Cloudlets</h3>
+          <p>Put business logic at the edge without engineering cycles. Cloudlets lets your product and ops teams control redirects, A/B tests, and audience segmentation through a visual policy editor.</p>
+          <ul class="card-list">
+            <li>Deploy rule changes in under 30 seconds</li>
+            <li>No origin deploys, no code reviews required</li>
+            <li>Full API access for CI/CD pipeline integration</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-cube"></i></div>
+          <h3>SaaS Provider Option</h3>
+          <p>Scale your platform without scaling your ops team. A CDN layer purpose-built for multi-tenant delivery, with per-customer analytics and isolated security policies built in from day one.</p>
+          <ul class="card-list">
+            <li>Onboard new tenants in minutes via REST API</li>
+            <li>Per-customer traffic isolation and reporting</li>
+            <li>Wildcard SSL and custom hostname support at scale</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Delivery Section -->
+  <section id="media" class="services-section light-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Media Delivery</div>
+        <h2 class="section-title">Buffer spinners kill audiences. Ours don't.</h2>
+        <p class="section-subtitle">Deliver broadcast-quality experiences at internet scale &mdash; with the analytics to prove it.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-play"></i></div>
+          <h3>Adaptive Media Delivery</h3>
+          <p>AMD monitors each viewer's network conditions in real time and seamlessly shifts bitrate so playback stays smooth — even when connectivity degrades mid-stream.</p>
+          <ul class="card-list">
+            <li>Reduces rebuffering events by up to 40%</li>
+            <li>Supports HLS, DASH, and CMAF at any scale</li>
+            <li>Built-in origin shield to reduce egress costs</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-download"></i></div>
+          <h3>Download Delivery</h3>
+          <p>A stalled download is a lost customer. Multipart transfer, intelligent retry logic, and edge proximity push completion rates for large files — software, game clients, firmware — to near 100%.</p>
+          <ul class="card-list">
+            <li>Resume-capable transfers survive connection drops</li>
+            <li>Real-time download funnel analytics</li>
+            <li>Token-based access control and rate limiting</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-film"></i></div>
+          <h3>Infinite Media Acceleration</h3>
+          <p>For broadcast-quality streaming at internet scale. IMA provides dedicated ingest infrastructure, redundant paths, and ultra-low-latency last-mile delivery for live events of any size.</p>
+          <ul class="card-list">
+            <li>Sub-second glass-to-glass latency options</li>
+            <li>Redundant ingest with automatic failover</li>
+            <li>Scales to millions of concurrent viewers in minutes</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-window-maximize"></i></div>
+          <h3>Dynamic Site Delivery</h3>
+          <p>Serve full-page experiences — headers, footers, personalization blocks and all — from the edge. DSD dramatically cuts origin load while keeping every response fresh and user-specific.</p>
+          <ul class="card-list">
+            <li>Offload up to 85% of page requests from origin</li>
+            <li>Granular cache control at the component level</li>
+            <li>Works with any CMS or e-commerce platform</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-database"></i></div>
+          <h3>NetStorage</h3>
+          <p>A globally replicated object store that feeds directly into the delivery network. No egress fees between storage and CDN, no latency tax, no single region becoming a bottleneck.</p>
+          <ul class="card-list">
+            <li>Synchronous replication across three geographic zones</li>
+            <li>Direct ingest from production workflows</li>
+            <li>Fine-grained access control via API or UI</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-sliders"></i></div>
+          <h3>Media Services</h3>
+          <p>From raw ingest to viewer-ready stream in one pipeline. Media Services handles transcoding, DRM licensing, and adaptive packaging so you focus on content, not plumbing.</p>
+          <ul class="card-list">
+            <li>Encode once, deliver everywhere (HLS, DASH, MP4)</li>
+            <li>Multi-DRM: Widevine, FairPlay, PlayReady</li>
+            <li>Frame-accurate clipping and just-in-time packaging</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-cyan"><i class="fa-solid fa-chart-bar"></i></div>
+          <h3>Media Analytics</h3>
+          <p>You can't improve what you don't measure. A real-time window into QoE metrics, audience behavior, and CDN performance at both the viewer level and the segment level.</p>
+          <ul class="card-list">
+            <li>Tracks buffering ratio, startup time, and bitrate</li>
+            <li>Audience segmentation by geography, device, and ISP</li>
+            <li>Webhooks and API access for BI tool integration</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cloud Security Section -->
+  <section id="security" class="services-section dark-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Cloud Security</div>
+        <h2 class="section-title">Your perimeter is the internet. Defend it.</h2>
+        <p class="section-subtitle">Enterprise-grade protection that stops attacks at the edge &mdash; before they ever reach your infrastructure.</p>
+      </div>
+      <div class="cards-grid">
+        <div class="service-card">
+          <div class="card-icon accent-red"><i class="fa-solid fa-shield-halved"></i></div>
+          <h3>Cloud Site Defender</h3>
+          <p>Combines a high-capacity DDoS scrubbing network with an adaptive WAF to block volumetric attacks, credential stuffing, and zero-day exploits before they reach your origin.</p>
+          <ul class="card-list">
+            <li>20+ Tbps of DDoS mitigation capacity</li>
+            <li>OWASP Top 10 coverage with auto-updated rule sets</li>
+            <li>PCI DSS and SOC 2 compliant by design</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-red"><i class="fa-solid fa-robot"></i></div>
+          <h3>Bot Manager</h3>
+          <p>Uses behavioral fingerprinting and ML to distinguish humans, good bots, and malicious automation — protecting your infrastructure, analytics, and pricing from abuse.</p>
+          <ul class="card-list">
+            <li>Detects headless browsers, proxies, and CAPTCHA solvers</li>
+            <li>Challenge, block, or feed misinformation to bad bots</li>
+            <li>Protects checkout flows, login pages, and APIs</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-red"><i class="fa-solid fa-cloud-bolt"></i></div>
+          <h3>Cloud DDoS Defender</h3>
+          <p>When a multi-vector attack hits, mitigation needs to start in seconds — not minutes. Our always-on scrubbing architecture absorbs attack traffic at the network edge before it enters your infrastructure.</p>
+          <ul class="card-list">
+            <li>Sub-60-second time-to-mitigate for volumetric attacks</li>
+            <li>Covers UDP, TCP, and ICMP flood vectors simultaneously</li>
+            <li>Dedicated 24/7 incident response team</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-red"><i class="fa-solid fa-server"></i></div>
+          <h3>DNS Defender</h3>
+          <p>DNS is the first step in every web transaction — and one of the most attacked protocols online. Anycast routing and inline DDoS absorption keep your domain online when others go dark.</p>
+          <ul class="card-list">
+            <li>DNSSEC support for all zones</li>
+            <li>NXDOMAIN filtering and DNS firewall</li>
+            <li>Real-time query analytics for threat hunting</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-red"><i class="fa-solid fa-eye"></i></div>
+          <h3>Client Reputation</h3>
+          <p>Why respond to attackers you already know? Client Reputation taps into global visibility across trillions of daily requests to pre-emptively block IPs with a history of malicious behavior.</p>
+          <ul class="card-list">
+            <li>Reputation scores updated in real time, globally</li>
+            <li>Configurable response: block, rate-limit, or challenge</li>
+            <li>Reduces WAF false positives by pre-filtering bad actors</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon accent-red"><i class="fa-solid fa-lock"></i></div>
+          <h3>Site Shield</h3>
+          <p>Attackers can bypass your CDN if they find your origin IP. Site Shield keeps it secret by routing all inbound traffic through our scrubbing infrastructure — your servers become unreachable to direct attack.</p>
+          <ul class="card-list">
+            <li>Hides your origin from DNS enumeration and IP scanning</li>
+            <li>Works alongside existing firewall and WAF rules</li>
+            <li>Audit-ready access logs for every inbound request</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Cloud Networking Section -->
+  <section id="networking" class="services-section light-section">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-tag">Cloud Networking</div>
+        <h2 class="section-title">Enterprise traffic doesn't belong on the best-effort internet.</h2>
+        <p class="section-subtitle">A managed overlay that applies performance, security, and policy to every session &mdash; cloud, SaaS, or on-prem.</p>
+      </div>
+      <div class="cards-grid cards-grid-3">
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-network-wired"></i></div>
+          <h3>Cloud Networking Suite</h3>
+          <p>Applies QoS, zero-trust security, and route optimization to every session — from remote workers to branch offices to cloud workloads — under a single unified policy framework.</p>
+          <ul class="card-list">
+            <li>Zero-trust network access for remote and branch users</li>
+            <li>Unified policy management across all locations</li>
+            <li>Per-application traffic analytics and reporting</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-sitemap"></i></div>
+          <h3>Intelligent WAN</h3>
+          <p>Combines SD-WAN transport intelligence with edge-based HTTP/S caching to deliver HQ-class application performance at every branch office — without the MPLS price tag.</p>
+          <ul class="card-list">
+            <li>Prioritize critical applications over recreational traffic</li>
+            <li>Reduce MPLS costs by offloading cacheable traffic to broadband</li>
+            <li>Centralized visibility and policy control across all branches</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <div class="card-icon"><i class="fa-solid fa-rocket"></i></div>
+          <h3>SaaS Accelerator</h3>
+          <p>SaaS applications perform unpredictably over the public internet. SaaS Accelerator routes Microsoft 365, Salesforce, and other cloud apps through optimized private paths, eliminating the latency spikes that kill productivity.</p>
+          <ul class="card-list">
+            <li>Up to 4&times; faster response times for cloud productivity apps</li>
+            <li>Proactive path switching before degradation hits users</li>
+            <li>Fully transparent — no client software required</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header light">
+        <div class="section-tag">Contact Us</div>
+        <h2 class="section-title">Talk to an engineer, not a sales script.</h2>
+        <p class="section-subtitle">Our team understands the infrastructure problems you're solving and will help you design a solution that fits your architecture and budget.</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info">
+          <h3>Sales</h3>
+          <div class="contact-item">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Corporate Headquarters: 11 Wall St, New York, United States</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-phone"></i>
+            <span>1-800-555-0199</span>
+          </div>
+          <div class="contact-item">
+            <i class="fa-solid fa-envelope"></i>
+            <span>info@slacksolutions.com</span>
+          </div>
+          <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" aria-label="X / Twitter"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fa-brands fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="contact-support">
+          <h3>Customer Support</h3>
+          <p>When something breaks at 2 AM, you'll reach a senior engineer who knows our platform — not a ticket queue. Every Slack Solutions customer gets a named technical account manager and direct access to our global network operations center.</p>
+          <div class="support-highlights">
+            <div class="highlight-item">
+              <i class="fa-solid fa-headset"></i>
+              <span>24/7 Expert Support — No Ticket Queues</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Dedicated Security Operations Center</span>
+            </div>
+            <div class="highlight-item">
+              <i class="fa-solid fa-chart-line"></i>
+              <span>Named Technical Account Manager</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-brand">
+          <span class="brand-icon">&#9889;</span>
+          slacksolutions.com
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation">
+          <a href="#performance">Web Performance</a>
+          <a href="#media">Media Delivery</a>
+          <a href="#security">Cloud Security</a>
+          <a href="#networking">Cloud Networking</a>
+          <a href="#contact">Contact</a>
+        </nav>
+        <div class="footer-copy">
+          &copy; 2026 Slack Solutions Inc. &mdash; All Rights Reserved
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+(function () {
+  'use strict';
+
+  var navbar    = document.getElementById('navbar');
+  var navToggle = document.getElementById('navToggle');
+  var navMenu   = document.getElementById('navMenu');
+
+  window.addEventListener('scroll', function () {
+    if (window.scrollY > 60) {
+      navbar.classList.add('scrolled');
+    } else {
+      navbar.classList.remove('scrolled');
+    }
+  });
+
+  navToggle.addEventListener('click', function () {
+    navMenu.classList.toggle('open');
+  });
+
+  navMenu.querySelectorAll('.nav-link').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navMenu.classList.remove('open');
+    });
+  });
+
+}());
+  </script>
+</body>
+</html>
